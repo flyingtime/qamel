@@ -11,12 +11,17 @@ func main() {
 	app := qamel.NewApplication(len(os.Args), os.Args)
 	app.SetApplicationDisplayName("Qamel Example")
 
+	// 1st way
 	engine := qamel.NewEngine()
+	view := qamel.NewEngineViewer(engine)
+
+	// 2nd way
+	// view := qamel.NewViewer()
+	// engine := view.Engine()
+
 	//$QT_DIR
 	engine.AddImportPath("/Users/FlyingtimeICE/QT/Qt5.14.0/Examples/Qt-5.14.0/qml/qmlextensionplugins/imports")
 
-	// Create a QML viewer
-	view := qamel.NewEngineViewer(engine)
 	view.SetSource("qrc:/res/main.qml")
 	view.SetResizeMode(qamel.SizeRootObjectToView)
 	// view.SetHeight(300)
