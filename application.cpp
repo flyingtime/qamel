@@ -7,6 +7,7 @@
 #include <QList>
 
 void* App_NewApplication(int argc, char* argv) {
+    qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
 	static int argcs = argc;
 	static char** argvs = static_cast<char**>(malloc(argcs * sizeof(char*)));
 
